@@ -7,18 +7,17 @@
 local ADDON, Addon = ...
 local L = LibStub('AceLocale-3.0'):GetLocale(ADDON)
 local Frame = Addon:NewClass('Frame', 'Frame')
-Frame.OpenSound = SOUNDKIT.IG_BACKPACK_OPEN
-Frame.CloseSound = SOUNDKIT.IG_BACKPACK_CLOSE
+
 
 --[[ Frame Events ]]--
 
 function Frame:OnShow()
-	PlaySound(self.OpenSound)
+	PlaySound(SOUNDKIT.IG_BACKPACK_OPEN)
 	self:RegisterMessages()
 end
 
 function Frame:OnHide()
-	PlaySound(self.CloseSound)
+	PlaySound(SOUNDKIT.IG_BACKPACK_CLOSE)
 	self:UnregisterMessages()
 
 	if Addon.sets.resetPlayer then
